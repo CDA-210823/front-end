@@ -4,8 +4,13 @@ import logo from '../../assets/images/Header/logo.svg';
 import {HomeIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon} from "@heroicons/react/24/outline/index.js";
 import Product from "../../views/Product/Product.jsx";
 import {Link} from "react-router-dom";
+import {TokenService} from "../../services/TokenService.jsx";
+import Registration from "../../views/Registration/Registration.jsx";
+import Login from "../../views/Login/Login.jsx";
+import Logout from "../../views/Logout/Logout.jsx";
 
 const Header = () => {
+    const isConnected = TokenService.isLogged();
     return (
         <header>
             <div className='flex justify-between items-center'>
@@ -20,10 +25,11 @@ const Header = () => {
                 </div>
                 <div>
                     <Link className='linkHeader' to={Product}>Produits</Link>
+                    {!isConnected && <Link className='linkHeader' to={Registration}>Inscription</Link>}
+                    {!isConnected && <Link className='linkHeader' to={Login}>Connexion</Link>}
+                    {isConnected && <Link className='linkHeader' to={Logout}>Déconnexion</Link>}
                 </div>
             </div>
-
-
         </header>
 
     );
