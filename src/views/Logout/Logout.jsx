@@ -6,6 +6,7 @@ const Logout = () => {
     useEffect(() => {
         TokenService.logout();
         navigate('/login');
+        window.location.reload();
     }, []);
     return (
         <></>

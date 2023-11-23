@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import {TokenService} from '../../services/TokenService';
@@ -10,6 +11,7 @@ const Login = () => {
             .then(response => {
                 TokenService.setToken(response.data.token);
                 navigate('/');
+                window.location.reload();
             })
             .catch(error => {
                 console.error(error);
@@ -20,7 +22,6 @@ const Login = () => {
         password: ''
     };
     const onSubmit = (values) => {
-        // console.log(values);
         login(values);
     };
     const validationSchema = yup.object().shape({
