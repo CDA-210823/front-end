@@ -14,10 +14,14 @@ const Header = () => {
                     <img className='logo' src={logo} alt="logo"/>
                 </div>
                 <div className='flex'>
-                    <HomeIcon className='headerIcon'/>
-                    <MagnifyingGlassIcon className='headerIcon'/>
-                    <UserIcon className='headerIcon'/>
-                    <ShoppingCartIcon className='headerIcon'/>
+                    <Link to='/'>
+                        <HomeIcon className='headerIcon'/>
+                    </Link>
+                    <Link to='/search'>
+                        <MagnifyingGlassIcon className='headerIcon'/>
+                    </Link>
+                    {isConnected && <Link to='/profil'><UserIcon className='headerIcon'/></Link>}
+                    {isConnected && <Link to='cart'><ShoppingCartIcon className='headerIcon'/></Link>}
                 </div>
                 <div>
                     <Link className='linkHeader' to='/product'>Produits</Link>

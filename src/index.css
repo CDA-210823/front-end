@@ -6,6 +6,10 @@
     header {
         @apply bg-indigo-800
     }
+
+    footer {
+        @apply bg-black bottom-0 left-0 right-0 absolute [height:60px] flex items-center
+    }
 }
 
 @layer components {
@@ -14,10 +18,18 @@
     }
 
     .headerIcon {
-        @apply text-white w-10 m-4
+        @apply text-white w-10 m-4 hover:text-blue-200 cursor-pointer
     }
 
     .linkHeader {
         @apply mr-3 text-white font-bold text-[32px] [text-shadow:_0_4px_4px_rgba(0_0_0_/_25%)] [font-family:inter]
+    }
+
+    .footer {
+        @apply text-white m-1 [font-family:inter]
+    }
+
+    .logoFooterSocial {
+        @apply w-12 mx-2
     }
 }
