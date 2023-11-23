@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { TokenService } from './TokenService';
 const Axios = axios.create({
-    baseURL: 'https://localhost:8000/api',
+    baseURL: 'http://localhost:8000/api',
 });
 Axios.interceptors.request.use(request => {
     if (TokenService.isLogged()) {

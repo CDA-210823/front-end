@@ -2,12 +2,8 @@
 import React from 'react';
 import logo from '../../assets/images/Header/logo.svg';
 import {HomeIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon} from "@heroicons/react/24/outline/index.js";
-import Product from "../../views/Product/Product.jsx";
 import {Link} from "react-router-dom";
 import {TokenService} from "../../services/TokenService.jsx";
-import Registration from "../../views/Registration/Registration.jsx";
-import Login from "../../views/Login/Login.jsx";
-import Logout from "../../views/Logout/Logout.jsx";
 
 const Header = () => {
     const isConnected = TokenService.isLogged();
@@ -24,10 +20,10 @@ const Header = () => {
                     <ShoppingCartIcon className='headerIcon'/>
                 </div>
                 <div>
-                    <Link className='linkHeader' to={Product}>Produits</Link>
-                    {!isConnected && <Link className='linkHeader' to={Registration}>Inscription</Link>}
-                    {!isConnected && <Link className='linkHeader' to={Login}>Connexion</Link>}
-                    {isConnected && <Link className='linkHeader' to={Logout}>Déconnexion</Link>}
+                    <Link className='linkHeader' to='/product'>Produits</Link>
+                    {!isConnected && <Link className='linkHeader' to='/registration'>Inscription</Link>}
+                    {!isConnected && <Link className='linkHeader' to='/login'>Connexion</Link>}
+                    {isConnected && <Link className='linkHeader' to='/logout'>Déconnexion</Link>}
                 </div>
             </div>
         </header>
