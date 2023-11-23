@@ -25,9 +25,9 @@ const Product = () => {
 
     return (
         <div className="w-full p-10">
-            <div className="flex flex-wrap w-full justify-between">
+            <div className="flex flex-wrap justify-between">
                 {products.map((product) => (
-                   <CardProduct key={product.id} product={product} />
+                    <CardProduct key={product.id} product={product} />
                 ))}
             </div>
         </div>
