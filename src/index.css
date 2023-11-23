@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    header {
+        @apply bg-indigo-800
+    }
+}
+
+@layer components {
+    .logo {
+        @apply w-44
+    }
+
+    .headerIcon {
+        @apply text-white w-10 m-4
+    }
+
+    .linkHeader {
+        @apply mr-3 text-white font-bold text-[32px] [text-shadow:_0_4px_4px_rgba(0_0_0_/_25%)] [font-family:inter]
+    }
+}
