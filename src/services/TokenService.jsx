@@ -4,6 +4,9 @@ const login = (credentials) => {
     logout();
     return Axios.post('/login_check', credentials);
 };
+const registration = (credentials) => {
+    return Axios.post('/user/new', credentials);
+};
 const setToken = (token) => {
     return localStorage.setItem('token', token);
 };
@@ -30,4 +33,4 @@ let logout = () => {
     localStorage.removeItem('token');
     delete Axios.defaults.headers.common.Authorization;
 };
-export const TokenService = { login, setToken, getToken, removeToken, isLogged, logout };
+export const TokenService = { login, registration, setToken, getToken, removeToken, isLogged, logout };

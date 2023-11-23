@@ -6,14 +6,14 @@ import Home from './views/Home/Home.jsx';
 import Login from './views/Login/Login.jsx';
 import Product from './views/Product/Product.jsx';
 import Logout from './views/Logout/Logout.jsx';
-
-
+import Registration from './views/Registration/Registration.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/registration" element={<Registration />} />
             <Route path="/product" element={<Product />} />
         </Routes>
     </Router>
