@@ -5,7 +5,7 @@ const login = (credentials) => {
     return Axios.post('/login_check', credentials);
 };
 const setToken = (token) => {
-    localStorage.setItem('token', token);
+    return localStorage.setItem('token', token);
 };
 const getToken = () => {
     return localStorage.getItem('token');
@@ -30,4 +30,4 @@ let logout = () => {
     localStorage.removeItem('token');
     delete Axios.defaults.headers.common.Authorization;
 };
-export const TokenService = { setToken, getToken, removeToken };
+export const TokenService = { login, setToken, getToken, removeToken, isLogged, logout };

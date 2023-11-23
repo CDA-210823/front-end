@@ -4,7 +4,8 @@ import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './views/Home/Home.jsx';
 import Login from './views/Login/Login.jsx';
-import Product from "./views/Product/Product.jsx";
+import Product from './views/Product/Product.jsx';
+import Logout from './views/Logout/Logout.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/product" element={<Product />} />
         </Routes>
     </Router>
