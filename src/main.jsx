@@ -10,6 +10,7 @@ import Product from './views/Product/Product.jsx';
 import Logout from './views/Logout/Logout.jsx';
 import Registration from './views/Registration/Registration.jsx';
 import './index.css';
+import AddProduct from "./views/Admin/Product/AddProduct.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/admin/addProduct" element={<AddProduct />} />
         </Routes>
         <Footer/>
     </Router>
