@@ -2,10 +2,6 @@ import {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 import product from "../../views/Product/Product.jsx";
 import ImgTest from '../../assets/images/imgTest.png';
-// import Iphone from '../../assets/images/iphone.jpg';
-// import Iphone2 from '../../assets/images/iphone2.jpg';
-// import Iphone3 from '../../assets/images/iphone3.jpg';
-
 
 const DetailsProduct = () => {
     const params = useParams();
@@ -25,20 +21,8 @@ const DetailsProduct = () => {
             .then(json => setDetailsProducts(json))
     }, []);
 
-    // const getRandomImage = () => {
-    //     const images = [
-    //         ImgTest,
-    //         Iphone,
-    //         Iphone2,
-    //         Iphone3,
-    // ];
-    //
-    //     const randomIndex = Math.floor(Math.random() * images.length);
-    //     return images[randomIndex];
-    // };
-
     return (
-        <div className='flex justify-around my-24 items-center'>
+        <div className='flex justify-around my-24 items-center  max-sm:flex-col-reverse'>
             <div>
                 <input className='text-center p-2' type="text" value={detailsProducts.name}/>
                 <input className='text-center p-2' type="text" value={detailsProducts.price}/>
