@@ -4,7 +4,6 @@ import LogoIcon from "../../assets/images/Header/logo.png";
 import { useSelector } from 'react-redux';
 const Header = () => {
     const isConnected = useSelector((state) => state.auth.isLogged);
-    console.log(isConnected)
     return (
         <header>
             <div className='flex justify-between items-center'>
