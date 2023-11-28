@@ -1,20 +1,22 @@
-// eslint-disable-next-line no-unused-vars
-import React, {useRef, useEffect} from 'react';
 import ImgTest from '../../assets/images/imgTest.png';
 import Truncate from "../Utils/Truncate.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 const CardProduct = ({ product }) => {
+    const navigate = useNavigate();
     return (
         <div className="md:w-1/4  lg:w-23/100 lg:w-[22%] p-4 bg-card mb-10 rounded-lg shadow-boxShadow ">
             <div className="w-full p-4 bg-card ">
-                <div className="w-full">
+                <div className="w-full" >
                     <h3 className="text-3xl sm:text-lg lg:text-xl xl:text-2xl text-center mb-2">
                         <Truncate text={product.name} maxLength={10} />
                     </h3>
                 </div>
 
-                <img src={ImgTest} alt="" className="w-full" />
+                <img onClick={()=> {
+                    navigate(`/show/${product.id}`);
+                }}  src={ImgTest} alt="" className="w-full" />
                 <div className="flex flex-col flex-wrap justify-between items-center align-middle mt-4">
                     <div className="md:w-full text-center">
                         <p className="md:text-xl md:text-center">{product.price}€</p>
