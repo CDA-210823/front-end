@@ -87,5 +87,9 @@
     .imageShowProduct {
         @apply max-sm:w-1/2 max-sm:h-1/2 max-sm:mx-auto
     }
+
+    .imgHome {
+        filter: brightness(.17)
+    }
 }
 

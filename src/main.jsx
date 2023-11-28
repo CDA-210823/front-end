@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AddProduct from "./views/Admin/Product/AddProduct.jsx";
 import App from './App.jsx';
 import {Provider} from 'react-redux';
 import {store, persistor} from './store/store';
