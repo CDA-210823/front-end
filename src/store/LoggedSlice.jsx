@@ -6,8 +6,10 @@ export const LoggedSlice = createSlice({
         value: false
     },
     reducers: {
-        isLoggedIn: (state) => {
-            state.isLogged = TokenService.isLogged()
+        isLoggedIn: (state, {payload}) => {
+            console.log(payload);
+            state.isLogged = payload;
+            console.log(state.isLogged)
         }
     }
 });

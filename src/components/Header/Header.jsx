@@ -3,7 +3,7 @@ import {HomeIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon} from '@heroic
 import {Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 const Header = () => {
-    const isConnected = useSelector((state) => state.isLogged.value);
+    const isConnected = useSelector((state) => state.auth.isLogged);
     console.log(isConnected)
     return (
         <header>
