@@ -5,7 +5,6 @@ import Axios from "../../services/AxiosService.jsx";
 import { useSelector } from 'react-redux';
 import {toast} from "react-toastify";
 
-
 const DetailsProduct = () => {
     const isConnected = useSelector((state) => state.auth.isLogged);
 

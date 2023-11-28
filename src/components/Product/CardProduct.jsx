@@ -35,8 +35,7 @@ const CardProduct = ({ product }) => {
                         onClick={()=> {
                             verifyForCart()
                         }}
-                        className="bg-button text-white md:w-[80%] md:text-[60%] lg:text-[12px] px-1 py-2 rounded shadow-boxShadow mr-2  md:ml-4">
-
+                        className="buttonAddCart">
                         Ajouter au panier
                     </button>
                 </div>
