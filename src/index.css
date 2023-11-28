@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Poppins';
+    src: url("/src/assets/font/poppins.light.ttf");
+}
 
 @layer base {
     header {
@@ -8,7 +12,7 @@
     }
 
     footer {
-        @apply bg-black bottom-0 left-0 right-0 absolute [height:60px] flex items-center justify-between
+        @apply bg-black bottom-0 left-0 right-0  fixed [height:60px] flex items-center justify-between
     }
 }
 
@@ -32,5 +36,9 @@
 
     .logoFooterSocial {
         @apply w-8 h-8 mx-2 sm:w-14 cursor-pointer
+    }
+
+    .family {
+        font-family: Poppins, sans-serif;
     }
 }
