@@ -14,6 +14,7 @@ const DetailsProduct = () => {
 
     const verifyForCart = (product)=> {
         if (isConnected) {
+            /*TODO change edit addToCart @Noah*/
             addToCart(product.id)
         } else {
             toast('Vous devez être connecté pour pouvoir ajouter au panier')
