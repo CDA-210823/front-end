@@ -51,5 +51,41 @@
     .family {
         font-family: Poppins, sans-serif;
     }
+
+    /*ShowProduct*/
+
+    .containerShowProduct {
+        @apply flex max-md:mt-2 justify-around my-24 items-center max-sm:flex-col-reverse
+    }
+
+    .containerDetailsProduct {
+        @apply bg-detailsProduct rounded shadow-boxShadow lg:mt-5 lg:w-1/5 lg:mr-5 p-10 sm:mt-0 sm:mr-0 sm:w-full
+        md:mt-2 md:mr-2 sm:m-1
+    }
+
+    .detailsProduct {
+        @apply text-center mx-auto p-2 bg-white block my-2 lg:w-full
+    }
+
+    .stockProduct {
+        @apply text-center font-extrabold my-2 sm:text-2xl
+    }
+
+    .buttonAddCart {
+        @apply bg-button text-white md:w-[80%] md:text-[60%] lg:text-[12px] px-1 py-2 rounded shadow-boxShadow mr-2
+        md:ml-4
+    }
+
+    .containerDescriptionProduct {
+        @apply bg-detailsProduct rounded shadow-boxShadow lg:mt-5 lg:w-1/2 lg:mr-5 p-10 sm:mr-0  m-1 md:m-1 my-2
+    }
+
+    .titleDescriptionProduct {
+        @apply sm:text-2xl font-bold text-center
+    }
+
+    .imageShowProduct {
+        @apply max-sm:w-1/2 max-sm:h-1/2 max-sm:mx-auto
+    }
 }
 
