@@ -39,23 +39,25 @@ const Login = () => {
         <>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form>
-                    <div className="flex justify-end items-start w-full">
-                        <div className="bg-slate-300 rounded shadow-md mt-5 w-1/2 mr-5 p-10">
-                            <h1 className="text-2xl font-bold text-center">Login</h1>
+                    <div className="flex justify-end w-full h-full">
+                        <div className="bg-detailsProduct rounded shadow-boxShadow 	 w-1/3 mr-10 p-10">
+                            <h1 className="text-2xl font-bold text-center">Connexion</h1>
                             <div className="row-form">
                                 <label htmlFor="email">Email</label>
                                 <Field type="email" id="email" name="email"/>
                                 <ErrorMessage name="email"/>
                             </div>
                             <div className="row-form">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">Mot de passe </label>
                                 <Field type="password" id="password" name="password"/>
                                 <ErrorMessage name="password"/>
                             </div>
                             <div className="row-form">
-                                <input className="buttonProduct" type="submit" value="Login"/>
+                                <input className="buttonProduct" type="submit" value="Connexion"/>
                             </div>
-                            <Link to="/forgot-password" className="text-right">Mot de passe oublié ?</Link>
+                            <div className='row-form text-right'>
+                                <Link to="/forgot-password" className="text-right text-resetPassword">Mot de passe oublié ?</Link>
+                            </div>
                         </div>
                     </div>
                 </Form>
