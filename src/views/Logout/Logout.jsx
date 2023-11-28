@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { TokenService } from '../../services/TokenService';
+import { toast } from 'react-toastify';
+import {useDispatch} from "react-redux";
+import {isLoggedIn} from "../../store/LoggedSlice.jsx";
 const Logout = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     useEffect(() => {
         TokenService.logout();
+        dispatch(isLoggedIn());
         navigate('/login');
-        window.location.reload();
+        toast('Vous avez bien été déconnecté');
+
     }, []);
     return (
         <></>

@@ -1,10 +1,10 @@
 import {HomeIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon} from "@heroicons/react/24/outline/index.js";
 import {Link} from "react-router-dom";
-import {TokenService} from "../../services/TokenService.jsx";
 import LogoIcon from "../../assets/images/Header/logo.png";
-
+import { useSelector } from 'react-redux';
 const Header = () => {
-    const isConnected = TokenService.isLogged();
+    const isConnected = useSelector((state) => state.auth.isLogged);
+    console.log(isConnected)
     return (
         <header>
             <div className='flex justify-between items-center'>
@@ -18,7 +18,7 @@ const Header = () => {
                     <Link to='/search'>
                         <MagnifyingGlassIcon className='headerIcon'/>
                     </Link>
-                    {isConnected && <Link to='/profil'><UserIcon className='headerIcon'/></Link>}
+                    {isConnected &&  <Link to='/profil'><UserIcon className='headerIcon'/></Link>}
                     {isConnected && <Link to='cart'><ShoppingCartIcon className='headerIcon'/></Link>}
                 </div>
                 <div>
@@ -29,7 +29,6 @@ const Header = () => {
                 </div>
             </div>
         </header>
-
     );
 };
-export default Header
+export default Header;
