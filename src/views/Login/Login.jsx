@@ -40,7 +40,7 @@ const Login = () => {
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form>
                     <div className="flex justify-end w-full h-full">
-                        <div className="bg-detailsProduct rounded shadow-boxShadow 	 w-1/3 mr-10 p-10">
+                        <div className="bg-detailsProduct rounded shadow-boxShadow  w-1/3 mr-10 p-10">
                             <h1 className="text-2xl font-bold text-center">Connexion</h1>
                             <div className="row-form">
                                 <label htmlFor="email">Email</label>

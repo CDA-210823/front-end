@@ -34,7 +34,7 @@ const Registration = () => {
         <>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form>
-                    <div className="flex lg:flex-row lg:justify-end lg:items-center all:w-full all:h-full all:flex-col">
+                    <div className="flex lg:flex-row ml-10 lg:items-center all:w-full all:h-full all:flex-col">
                         <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-1/3 lg:mr-5 p-10 sm:w-full sm:mr-0 all:p-1">
                             <h1 className="text-2xl font-bold text-center">Inscription</h1>
                             <div className="row-form">
