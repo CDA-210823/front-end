@@ -1,8 +1,9 @@
 import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import * as yup from 'yup';
-import { TokenService } from "../../services/TokenService.jsx";
+import {TokenService} from "../../services/TokenService.jsx";
+
 const Registration = () => {
     let navigate = useNavigate();
     const regUser = (values) => {
@@ -34,19 +35,31 @@ const Registration = () => {
     });
     return (
         <>
-            <h1 className="text-4xl">Registration</h1>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form>
-                    <label htmlFor="email">Email</label>
-                    <Field type="email" id="email" name="email"/>
-                    <ErrorMessage name="email"/>
-                    <label htmlFor="username">Username</label>
-                    <Field type="text" id="username" name="username"/>
-                    <ErrorMessage name="username"/>
-                    <label htmlFor="password">Password</label>
-                    <Field type="password" id="password" name="password"/>
-                    <ErrorMessage name="password"/>
-                    <input type="submit" value="Registration"/>
+                    <div className="flex lg:flex-row lg:justify-end lg:items-center all:w-full all:h-full all:flex-col">
+                        <div className="bg-slate-300 rounded shadow-md lg:mt-5 lg:w-1/2 lg:mr-5 p-10 sm:w-full sm:mr-0 all:p-1">
+                            <h1 className="text-2xl font-bold text-center">Registration</h1>
+                            <div className="row-form">
+                                <label htmlFor="email">Email</label>
+                                <Field type="email" id="email" name="email"/>
+                                <ErrorMessage name="email"/>
+                            </div>
+                            <div className="row-form">
+                                <label htmlFor="username">Username</label>
+                                <Field type="text" id="username" name="username"/>
+                                <ErrorMessage name="username"/>
+                            </div>
+                            <div className="row-form">
+                                <label htmlFor="password">Password</label>
+                                <Field type="password" id="password" name="password"/>
+                                <ErrorMessage name="password"/>
+                            </div>
+                            <div className="row-form">
+                                <input className="buttonProduct" type="submit" value="Registration"/>
+                            </div>
+                        </div>
+                    </div>
                 </Form>
             </Formik>
         </>

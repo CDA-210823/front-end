@@ -11,13 +11,22 @@ const Footer = () => {
     return (
         <>
             <footer>
-                <Link className='footer' to='/contact'>Contact</Link>
-                <Link className='footer' to='/privacy'>Privacy</Link>
-                <Link className='footer' to='/conditionGeneral'>Conditions Générales</Link>
-                <div className='flex w-10/12 justify-end'>
-                    <img className='logoFooterSocial' src={twitter} alt="twitter"/>
-                    <img className='logoFooterSocial' src={fb} alt="facebook"/>
-                    <img className='logoFooterSocial' src={insta} alt="instagram"/>
+                <div>
+                    <Link className='footer' to='/contact'>Contact</Link>
+                    <Link className='footer' to='/privacy'>Privacy</Link>
+                    <Link className='footer' to='/conditionGeneral'>Conditions Générales</Link>
+                </div>
+
+                <div className='flex  justify-end'>
+                    <a href="https://twitter.com/MobilPhone8893" target="_blank" rel="noreferrer">
+                        <img className='logoFooterSocial' src={twitter} alt="twitter"/>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61553843163551" target='_blank' rel="noreferrer">
+                        <img className='logoFooterSocial' src={fb} alt="facebook"/>
+                    </a>
+                    <a href="https://www.instagram.com/mobilphonecda/" target='_blank' rel="noreferrer">
+                        <img className='logoFooterSocial' src={insta} alt="instagram"/>
+                    </a>
                 </div>
             </footer>
         </>
