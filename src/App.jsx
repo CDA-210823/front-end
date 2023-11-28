@@ -8,6 +8,7 @@ import Registration from './views/Registration/Registration.jsx';
 import Product from './views/Product/Product.jsx';
 import {ToastContainer} from 'react-toastify';
 import Footer from './components/Footer/Footer.jsx';
+import ShowProduct from "./components/Product/ShowProduct.jsx";
 const App = () => {
     return (
         <Router>
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/logout" element={<Logout/>}/>
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/product" element={<Product/>}/>
+                <Route path="/show/:id" element={<ShowProduct/>}/>
             </Routes>
             <ToastContainer
                 position="bottom-right"
