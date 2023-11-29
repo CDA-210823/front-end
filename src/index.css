@@ -1,3 +1,4 @@
+@import '@splidejs/react-splide/css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +13,7 @@
     }
 
     footer {
-        @apply bg-black bottom-0 left-0 right-0  fixed [height:60px] flex items-center justify-between
+        @apply bg-black bottom-0 left-0 right-0 [height:60px] flex items-center justify-between
     }
 
     input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
@@ -89,6 +90,10 @@
 
     .imageShowProduct {
         @apply max-sm:w-1/2 max-sm:h-1/2 max-sm:mx-auto
+    }
+
+    .imgHome {
+        filter: brightness(.17)
     }
 }
 
