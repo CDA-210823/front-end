@@ -1,6 +1,23 @@
 import homeImage from '/src/assets/images/Home/bg-image.png';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
+import {useEffect, useState} from "react";
+import {getLastProducts} from "../../services/ProductService.jsx";
+import CardProduct from "../../components/Product/CardProduct.jsx";
 const Home = () => {
+    const [LastProducts, setLastProducts] = useState([]);
+
+
+    useEffect(() => {
+        let tempData = [];
+        async function getData()
+        {
+            const data = await getLastProducts();
+            setLastProducts(data.data)
+        }
+
+        getData()
+            .then(() => setIsLoading(false));
+    }, []);
     return (
         <>
             <div className={"spacerHome w-full h-[40rem] max-h-[40rem] relative"}>
@@ -66,8 +83,11 @@ const Home = () => {
             <div>
                 <h2 className={"text-2xl ml-[5rem] family"}>Nos dernier ajouts: </h2>
 
-                <div>
-
+                <div className={"w-full flex justify-between p-8"}>
+                    {LastProducts.map((product) => {
+                        return <CardProduct key={product.id} product={product} />
+                    })
+                    }
                 </div>
             </div>
         </>

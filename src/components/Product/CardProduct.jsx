@@ -1,4 +1,3 @@
-import ImgTest from '../../assets/images/imgTest.png';
 import Truncate from "../Utils/Truncate.jsx";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
@@ -6,6 +5,8 @@ import {useSelector} from "react-redux";
 
 
 const CardProduct = ({ product }) => {
+    // imageProduct[0] for get the main image product
+    const imageLink = 'http://localhost:8000' + product.imageProduct[0].path + '.' + product.imageProduct[0].ext
     const isConnected = useSelector((state) => state.auth.isLogged);
     const navigate = useNavigate();
     const verifyForCart = (product)=> {
@@ -26,7 +27,7 @@ const CardProduct = ({ product }) => {
 
                 <img onClick={()=> {
                     navigate(`/show/${product.id}`);
-                }}  src={ImgTest} alt="" className="w-full" />
+                }}  src={imageLink} alt="" className="w-full" />
                 <div className="flex flex-col flex-wrap justify-between items-center align-middle mt-4">
                     <div className="md:w-full text-center">
                         <p className="md:text-xl md:text-center">{product.price}€</p>
