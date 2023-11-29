@@ -45,7 +45,7 @@ const DetailsProduct = () => {
                 <h2 className='titleDescriptionProduct'>Description du Produit</h2>
                 <div className='flex my-4 max-sm:block'>
                     <img className='imageShowProduct' src={ImgTest} alt="image tel"/>
-                    <div className='ml-4 mt-4 family'>{detailsProducts.description}</div>
+                    <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
 
                 </div>
             </div>
