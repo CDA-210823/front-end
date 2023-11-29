@@ -29,8 +29,8 @@ const DetailsProduct = () => {
     return (
         <div className='containerShowProduct'>
             <div className='containerDetailsProduct'>
-                <span className='detailsProduct'> {detailsProducts.name}</span>
-                <span className='detailsProduct'> {detailsProducts.price}</span>
+                <span className='detailsProduct titleDescription'> {detailsProducts.name}</span>
+                <span className='detailsProduct'> {detailsProducts.price} €</span>
                 <p className='stockProduct'>{detailsProducts.stock > 0 ? 'En stock' : 'En rupture'}</p>
                 <button
                     className='buttonAddCart'
