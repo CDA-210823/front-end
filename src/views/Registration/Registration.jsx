@@ -3,6 +3,7 @@ import {ErrorMessage, Field, Form, Formik} from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as yup from 'yup';
 import {TokenService} from "../../services/TokenService.jsx";
+import {toast} from "react-toastify";
 
 const Registration = () => {
     let navigate = useNavigate();
@@ -12,11 +13,11 @@ const Registration = () => {
                 if (response.status === 201) {
                     navigate('/login');
                 } else {
-                    console.error(response);
+                    toast('Une erreur est survenue ! ' + response.data.message);
                 }
             })
             .catch(error => {
-                console.error(error);
+                toast('Une erreur est survenue ! ' + error.message);
             })
     }
     const initialValues = {

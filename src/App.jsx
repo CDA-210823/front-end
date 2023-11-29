@@ -8,7 +8,8 @@ import Registration from './views/Registration/Registration.jsx';
 import Product from './views/Product/Product.jsx';
 import {ToastContainer} from 'react-toastify';
 import Footer from './components/Footer/Footer.jsx';
-import ShowProduct from "./components/Product/ShowProduct.jsx";
+import ShowProduct from './components/Product/ShowProduct.jsx';
+import Profile from './views/Profile/Profile.jsx';
 const App = () => {
     return (
         <Router>
@@ -20,6 +21,8 @@ const App = () => {
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/show/:id" element={<ShowProduct/>}/>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<Home/>} />
             </Routes>
             <ToastContainer
                 position="bottom-right"
