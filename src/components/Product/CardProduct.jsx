@@ -1,10 +1,20 @@
 import ImgTest from '../../assets/images/imgTest.png';
 import Truncate from "../Utils/Truncate.jsx";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
+import {useSelector} from "react-redux";
 
 
 const CardProduct = ({ product }) => {
+    const isConnected = useSelector((state) => state.auth.isLogged);
     const navigate = useNavigate();
+    const verifyForCart = (product)=> {
+        if (isConnected) {
+            addToCart(product.id)
+        } else {
+            toast('Vous devez être connecté pour pouvoir ajouter au panier')
+        }
+    }
     return (
         <div className="md:w-1/4  lg:w-23/100 lg:w-[22%] p-4 bg-card mb-10 rounded-lg shadow-boxShadow ">
             <div className="w-full p-4 bg-card ">
@@ -22,9 +32,10 @@ const CardProduct = ({ product }) => {
                         <p className="md:text-xl md:text-center">{product.price}€</p>
                     </div>
                     <button
-                        onClick={() => addToCart(product.id)}
-                        className="bg-button text-white md:w-[80%] md:text-[60%] lg:text-[12px] px-1 py-2 rounded shadow-boxShadow mr-2  md:ml-4"
-                    >
+                        onClick={()=> {
+                            verifyForCart()
+                        }}
+                        className="buttonAddCart">
                         Ajouter au panier
                     </button>
                 </div>

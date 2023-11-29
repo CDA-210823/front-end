@@ -8,6 +8,9 @@ export default {
     theme: {
         extend:
             {
+                colors: {
+                    'resetPassword': "#4F89E1",
+                },
                 backgroundColor: {
                     'card': '#D9D9D9',
                     'button': '#2E2F68',
