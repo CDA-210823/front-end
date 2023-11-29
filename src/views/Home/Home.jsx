@@ -3,8 +3,16 @@ import {Splide, SplideSlide} from "@splidejs/react-splide";
 import {useEffect, useState} from "react";
 import {getLastProducts} from "../../services/ProductService.jsx";
 import CardProduct from "../../components/Product/CardProduct.jsx";
+import ProductImage from "../../components/Product/ProductImage.jsx";
+import {useNavigate} from "react-router-dom";
 const Home = () => {
     const [LastProducts, setLastProducts] = useState([]);
+    const navigate = useNavigate();
+
+    function onClick(product)
+    {
+        navigate(`/show/${product.id}`)
+    }
 
 
     useEffect(() => {
@@ -16,7 +24,6 @@ const Home = () => {
         }
 
         getData()
-            .then(() => setIsLoading(false));
     }, []);
     return (
         <>
@@ -85,7 +92,7 @@ const Home = () => {
 
                 <div className={"w-full flex justify-between p-8"}>
                     {LastProducts.map((product) => {
-                        return <CardProduct key={product.id} product={product} />
+                        return <ProductImage key={product.id} product={product} onClickEvent={() => onClick(product)} />
                     })
                     }
                 </div>
