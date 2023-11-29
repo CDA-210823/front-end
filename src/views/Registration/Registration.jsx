@@ -37,7 +37,7 @@ const Registration = () => {
                    <Form className='w-full'>
                        <div className="flex lg:flex-row ml-10 lg:items-center">
                            <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-1/3 lg:mr-5
-                           p-10 sm:w-2/3  sm:mr-0">
+                           p-10 sm:w-2/3 sm:mr-0 max-[769px]:mx-auto" >
                                <h1 className="text-2xl font-bold text-center">Inscription</h1>
                                <div className="row-form">
                                    <label htmlFor="email">Email</label>

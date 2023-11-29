@@ -36,11 +36,10 @@ const DetailsProduct = () => {
                 <span className='detailsProduct titleDescription'> {detailsProducts.name}</span>
                 <span className='detailsProduct'> {detailsProducts.price} €</span>
                 <p className='stockProduct'>{detailsProducts.stock > 0 ? 'En stock' : 'En rupture'}</p>
-                <button
-                    className='buttonAddCart'
-                    onClick={()=> {
-                        verifyForCart()
-                    }}>
+                <button className='buttonProduct'
+                        onClick={()=> {
+                            verifyForCart()
+                        }}>
                     Ajouter au panier
                 </button>
             </div>
@@ -49,9 +48,8 @@ const DetailsProduct = () => {
                 <h2 className='titleDescriptionProduct'>Description du Produit</h2>
                 <div className='flex my-4 max-sm:block'>
                     {/*<ProductImage className='imageShowProduct' product={detailsProducts}/>*/}
-                    {/*<img className='imageShowProduct' src={ImgTest} alt="image tel"/>*/}
+                    <img className='imageShowProduct' src={ImgTest} alt="image tel"/>
                     <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
-
                 </div>
             </div>
         </div>

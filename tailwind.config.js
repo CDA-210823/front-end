@@ -13,7 +13,7 @@ export default {
                 },
                 backgroundColor: {
                     'card': '#D9D9D9',
-                    'button': '#2E2F68',
+                    'button': '#6552DC',
                     'detailsProduct': "#DCDCE7",
                 },
             },

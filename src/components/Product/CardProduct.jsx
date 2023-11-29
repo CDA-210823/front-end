@@ -36,7 +36,7 @@ const CardProduct = ({ product }) => {
                         onClick={()=> {
                             verifyForCart()
                         }}
-                        className="buttonAddCart">
+                        className="buttonProduct">
                         Ajouter au panier
                     </button>
                 </div>
