@@ -1,5 +1,5 @@
 import authReducer from './LoggedSlice.jsx';
-import cartReducer from './CartSlice.jsx';
+// import cartReducer from './CartSlice.jsx';
 import userReducer from './UserSlice.jsx';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from "redux-persist";
@@ -37,9 +37,9 @@ const rootReducer = combineReducers({
         authPersistConfig, authReducer
     ),
 
-    cart: persistReducer(
-        cartPersistConfig, cartReducer
-    ),
+    // cart: persistReducer(
+    //     cartPersistConfig, cartReducer
+    // ),
 
     user: persistReducer (
         userPersistConfig, userReducer
