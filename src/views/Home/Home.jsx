@@ -5,6 +5,9 @@ import {getLastProducts} from "../../services/ProductService.jsx";
 import CardProduct from "../../components/Product/CardProduct.jsx";
 import ProductImage from "../../components/Product/ProductImage.jsx";
 import {useNavigate} from "react-router-dom";
+import CBLogo from "/src/assets/images/Home/CB.svg"
+import DeliveryLogo from "/src/assets/images/Home/Delivery.svg"
+import SavLogo from "/src/assets/images/Home/SAV.svg"
 const Home = () => {
     const [LastProducts, setLastProducts] = useState([]);
     const navigate = useNavigate();
@@ -95,6 +98,20 @@ const Home = () => {
                         return <ProductImage key={product.id} product={product} onClickEvent={() => onClick(product)} />
                     })
                     }
+                </div>
+            </div>
+
+            <div className={' w-full flex justify-between p-4 mt-40'}>
+                <div className={'w-1/3 flex justify-center'}>
+                    <img src={CBLogo} alt="CB logo"/>
+                </div>
+
+                <div className={'w-1/3 flex justify-center'}>
+                    <img src={SavLogo} alt="CB logo"/>
+                </div>
+
+                <div className={'w-1/3 flex justify-center'}>
+                    <img src={DeliveryLogo} alt="CB logo"/>
                 </div>
             </div>
         </>

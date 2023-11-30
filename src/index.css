@@ -16,7 +16,7 @@
     }
 
     footer {
-        @apply bg-black bottom-0 left-0 right-0  fixed [height:70px] flex items-center justify-between
+        @apply bg-black bottom-0 left-0 right-0 [height:70px] flex items-center justify-between mt-64
     }
 
     input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
