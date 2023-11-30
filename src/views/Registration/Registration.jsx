@@ -46,26 +46,30 @@ const Registration = () => {
     return (
         <>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-                <Form>
-                    <div className="flex lg:flex-row ml-10 lg:items-center all:w-full all:h-full all:flex-col">
-                        <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-1/3 lg:mr-5 p-10 sm:w-full sm:mr-0 all:p-1">
-                            <h1 className="text-2xl font-bold text-center">Inscription</h1>
-                            <div className="row-form">
-                                <label htmlFor="email">Email</label>
-                                <Field type="email" id="email" name="email"/>
-                                <ErrorMessage name="email"/>
-                            </div>
-                            <div className="row-form">
-                                <label htmlFor="password">Mot de passe</label>
-                                <Field type="password" id="password" name="password"/>
-                                <ErrorMessage name="password"/>
-                            </div>
-                            <div className="row-form">
-                                <input className="buttonProduct" type="submit" value="Registration"/>
-                            </div>
-                        </div>
-                    </div>
-                </Form>
+               <main className='w-full h-[90vh] flex items-center' >
+                   <Form className='w-full'>
+                       <div className="flex lg:flex-row ml-10 lg:items-center">
+                           <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-1/3 lg:mr-5
+                           p-10 sm:w-2/3 sm:mr-0 max-[769px]:mx-auto" >
+                               <h1 className="text-2xl font-bold text-center">Inscription</h1>
+                               <div className="row-form">
+                                   <label htmlFor="email">Email</label>
+                                   <Field type="email" id="email" name="email"/>
+                                   <ErrorMessage name="email"/>
+                               </div>
+                               <div className="row-form">
+                                   <label htmlFor="password">Mot de passe</label>
+                                   <Field type="password" id="password" name="password"/>
+                                   <ErrorMessage name="password"/>
+                               </div>
+                               <div className="row-form">
+                                   <input className="buttonProduct" type="submit" value="Registration"/>
+                               </div>
+                           </div>
+                       </div>
+                   </Form>
+               </main>
+
             </Formik>
         </>
     )

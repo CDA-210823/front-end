@@ -1,4 +1,6 @@
-import authReducer from './LoggedSlice.jsx'
+import authReducer from './LoggedSlice.jsx';
+import cartReducer from './CartSlice.jsx';
+import userReducer from './UserSlice.jsx';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -25,13 +27,22 @@ const cartPersistConfig = {
     storage: storage,
 };
 
+const userPersistConfig = {
+    key: "user",
+    storage: storage,
+};
+
 const rootReducer = combineReducers({
     auth: persistReducer(
         authPersistConfig, authReducer
     ),
 
     cart: persistReducer(
-        cartPersistConfig, authReducer
+        cartPersistConfig, cartReducer
+    ),
+
+    user: persistReducer (
+        userPersistConfig, userReducer
     )
 });
 
