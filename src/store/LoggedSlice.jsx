@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {TokenService} from '../services/TokenService.jsx';
 export const LoggedSlice = createSlice({
     name: 'isLogged',
     initialState: {
@@ -7,9 +6,7 @@ export const LoggedSlice = createSlice({
     },
     reducers: {
         isLoggedIn: (state, {payload}) => {
-            console.log(payload);
             state.isLogged = payload;
-            console.log(state.isLogged)
         }
     }
 });

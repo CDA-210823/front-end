@@ -1,6 +1,7 @@
-import React from 'react'
 
 const ProductImage = ({product, onClickEvent}) => {
+    console.log(product)
+
     const imageLink = 'http://localhost:8000' + product.imageProduct[0].path + '.' + product.imageProduct[0].ext
     return (
             <div className={"w-1/4 text-center"}>

@@ -9,3 +9,8 @@ export async function getLastProducts()
 {
     return await Axios.get('/product/getByDate')
 }
+
+export async function getDetailsProduct(id)
+{
+    return await Axios.get(`/product/show/${id}`)
+}
