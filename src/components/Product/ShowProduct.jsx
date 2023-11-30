@@ -11,14 +11,14 @@ const ShowProduct = () => {
     const [detailsProducts, setDetailsProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const verifyForCart = (product) => {
-        if (isConnected) {
-            /*TODO change edit addToCart @Noah*/
-            addToCart(product.id)
-        } else {
-            toast('Vous devez être connecté pour pouvoir ajouter au panier')
-        }
-    }
+    // const verifyForCart = (product) => {
+    //     if (isConnected) {
+    //         /*TODO change edit addToCart @Noah*/
+    //         addToCart(product.id)
+    //     } else {
+    //         toast('Vous devez être connecté pour pouvoir ajouter au panier')
+    //     }
+    // }
 
     useEffect(() => {
         getDetailsProduct(params.id)
@@ -39,7 +39,7 @@ const ShowProduct = () => {
                         <p className='stockProduct'>{detailsProducts.stock > 0 ? 'En stock' : 'En rupture'}</p>
                         <button className='buttonProduct'
                                 onClick={() => {
-                                    verifyForCart()
+                                    // verifyForCart()
                                 }}>
                             Ajouter au panier
                         </button>
@@ -48,9 +48,12 @@ const ShowProduct = () => {
                     <div className='containerDescriptionProduct'>
                         <h2 className='titleDescriptionProduct'>Description du Produit</h2>
                         <div className='flex my-4 max-sm:block'>
-                            <ProductImage className='imageShowProduct' product={detailsProducts}/>
+                            <ProductImage product={detailsProducts}/>
                             <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
                         </div>
+                        <button className='buttonProduct w-1/2 mx-auto'>
+                            Ajouter un avis
+                        </button>
                     </div>
                 </div>
             }

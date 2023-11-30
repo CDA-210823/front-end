@@ -67,7 +67,8 @@
     }
 
     .containerDescriptionProduct {
-        @apply bg-detailsProduct rounded shadow-boxShadow lg:mt-5 md:w-full lg:w-2/4 lg:mr-5 p-10 sm:mr-0 max-[769px]:my-6
+        @apply bg-detailsProduct rounded shadow-boxShadow lg:mt-5 md:w-full lg:w-2/4 lg:mr-5 p-10 sm:mr-0
+        max-[769px]:my-6 flex flex-col
 
     }
 
@@ -89,8 +90,10 @@
     }
 
     .imageShowProduct {
-        @apply max-sm:w-1/2 max-sm:h-1/2 max-sm:mx-auto
+        @apply max-sm:w-full  max-sm:mx-auto
     }
+
+    /*Home*/
 
     .imgHome {
         filter: brightness(.17)
