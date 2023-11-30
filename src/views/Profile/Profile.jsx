@@ -1,15 +1,26 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import AxiosService from "../../services/AxiosService.jsx";
-import {Form} from "formik";
+import {Form, Formik} from 'formik';
+import {useDispatch} from 'react-redux';
+import {UserService} from '../../services/UserService.jsx';
 
 const Profile = () => {
+    const [loading, setLoading] = useState(true);
     const [user , setUser] = useState({});
+    const dispatch = useDispatch();
     useEffect(() => {
-        Axios.get()
+        console.log(UserService.getMail());
+        UserService.getId().then((response) => {
+            console.log(response);
+        })
+        setLoading(false)
     }, [])
-    const validationSchema = yup.object().shape({
+    // const validationSchema = yup.object().shape({
+    //
+    // })
+    const validationSchema = () => {
 
-    })
+    }
     const handleSubmit = (values) => {
 
     }

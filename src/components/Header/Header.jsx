@@ -17,7 +17,7 @@ const Header = () => {
                     <Link to='/search'>
                         <MagnifyingGlassIcon className='headerIcon'/>
                     </Link>
-                    {isConnected &&  <Link to='/profil'><UserIcon className='headerIcon'/></Link>}
+                    {isConnected &&  <Link to='/profile'><UserIcon className='headerIcon'/></Link>}
                     {isConnected && <Link to='cart'><ShoppingCartIcon className='headerIcon'/></Link>}
                 </div>
                 <div>
