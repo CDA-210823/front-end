@@ -1,11 +1,8 @@
 import {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom";
-import ImgTest from '../../assets/images/imgTest.png';
-import Axios from "../../services/AxiosService.jsx";
 import {useSelector} from 'react-redux';
 import {toast} from "react-toastify";
 import ProductImage from "./ProductImage.jsx";
-import product from "../../views/Product/Product.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
 
 const ShowProduct = () => {
