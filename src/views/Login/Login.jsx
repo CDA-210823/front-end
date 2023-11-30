@@ -13,6 +13,7 @@ const Login = () => {
     const login = (values) => {
         TokenService.login(values)
             .then(response => {
+                localStorage.setItem('email', values.email);
                 TokenService.setToken(response.data.token);
                 const connected = TokenService.isLogged();
                 console.log(connected);

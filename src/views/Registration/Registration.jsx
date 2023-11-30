@@ -1,35 +1,47 @@
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as yup from 'yup';
-import {TokenService} from "../../services/TokenService.jsx";
-import {toast} from "react-toastify";
+import {TokenService} from '../../services/TokenService.jsx';
+import {toast} from 'react-toastify';
 
 const Registration = () => {
     let navigate = useNavigate();
     const regUser = (values) => {
         TokenService.registration(values)
             .then(response => {
-                if (response.status === 201) {
-                    navigate('/login');
-                } else {
-                    toast('Une erreur est survenue ! ' + response.data.message);
+                switch (response.status) {
+                    case 201:
+                        toast('Inscription réussie !');
+                        navigate('/login');
+                        break;
+                    default:
+                        toast('Erreur : \n' + response.data.message);
+                        break;
                 }
             })
             .catch(error => {
-                toast('Une erreur est survenue ! ' + error.message);
+                toast('Crash erreur est survenue ! ' + error);
             })
     }
     const initialValues = {
         email: '',
-        username: '',
         password: ''
     };
     const onSubmit = (values) => {
         regUser(values);
     };
     const validationSchema = yup.object().shape({
-        email: yup.string().email().required('Email obligatoire'),
-        password: yup.string().required('Mot de passe obligatoire'),
+        email: yup.string()
+            .email()
+            .required('Email obligatoire')
+            .matches(/@[a-zA-Z]+\.[a-zA-Z]{2,}$/, 'L\'email doit contenir une extension d\'au moins deux caractères')
+            .min(2, 'Email trop court'),
+        password: yup.string()
+        .required('Mot de passe obligatoire')
+        .min(8, 'Mot de passe trop court')
+        .matches(/[A-Z]/, 'Le mot de passe doit contenir au moins une majuscule')
+        .matches(/[a-z]/, 'Le mot de passe doit contenir au moins une minuscule')
+        .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Le mot de passe doit contenir au moins un caractère spécial')
     });
     return (
         <>

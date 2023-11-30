@@ -31,6 +31,8 @@ const isLogged = () => {
 };
 let logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
     delete Axios.defaults.headers.common.Authorization;
 };
+
 export const TokenService = { login, registration, setToken, getToken, removeToken, isLogged, logout };
