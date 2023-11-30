@@ -1,24 +1,21 @@
 import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as yup from 'yup';
-import {useNavigate, useParams} from "react-router-dom";
 import {addOpinionProduct} from "../../services/ProductService.jsx";
+import {toast} from "react-toastify";
 
 const Opinion = () => {
-    const params = useParams();
-
     const initialValues = {
         opinion: '',
         note: 1,
     }
     const onSubmit = (values) => {
-        addOpinionProduct(params.id)
-            .then(r => console.log(r)
-            )
+        addOpinionProduct(values)
+            .then(() => toast("Votre avis a été ajouté avec succès"))
     };
 
     const validationsSchema = yup.object().shape({
         opinion: yup.string().required("Champs requis"),
-        note: yup.number().required("La note ne peut pas être null")
+        // note: yup.number().required("La note ne peut pas être null")
     })
 
     return (

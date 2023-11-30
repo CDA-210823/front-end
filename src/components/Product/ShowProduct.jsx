@@ -2,10 +2,8 @@ import {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom";
 import {useSelector} from 'react-redux';
 import {useNavigate} from "react-router-dom";
-import {toast} from "react-toastify";
 import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
-import Opinion from "../Opinion/Opinion.jsx";
 
 const ShowProduct = () => {
     const navigate = useNavigate();
