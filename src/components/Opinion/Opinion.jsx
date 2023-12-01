@@ -2,9 +2,11 @@ import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as yup from 'yup';
 import {addOpinionProduct} from "../../services/ProductService.jsx";
 import {toast} from "react-toastify";
+import {useParams} from "react-router-dom";
 // import {useSelector} from "react-redux";
 
 const Opinion = () => {
+    const params = useParams();
     // const userId = useSelector(state => state.user.value);
     // console.log(userId);
 
@@ -13,7 +15,7 @@ const Opinion = () => {
         note: 3,
     }
     const onSubmit = (values) => {
-        addOpinionProduct(values)
+        addOpinionProduct(values, params.id)
             .then(() => toast("Votre avis a été ajouté avec succès"))
     };
 
