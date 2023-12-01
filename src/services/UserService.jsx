@@ -9,14 +9,11 @@ const getMail = () => {
     }
     return '';
 }
-const getId = async () => {
-    let id = 0;
-    const data = [
-        {
+const getId = () => {
+    const data = {
             email: getMail(),
-        }
-    ];
-    return Axios.post('/user/searchbyemail', data)
+        };
+    return Axios.post('/user/searchbyemail', data);
 }
 const getUsername = (id) => {
 

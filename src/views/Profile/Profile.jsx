@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import AxiosService from "../../services/AxiosService.jsx";
+import AxiosService from '../../services/AxiosService.jsx';
 import {Form, Formik} from 'formik';
 import {useDispatch} from 'react-redux';
 import {UserService} from '../../services/UserService.jsx';
@@ -10,9 +10,9 @@ const Profile = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         console.log(UserService.getMail());
-        UserService.getId().then((response) => {
+        UserService.getId().then(response => {
             console.log(response);
-        })
+        });
         setLoading(false)
     }, [])
     // const validationSchema = yup.object().shape({
@@ -25,7 +25,6 @@ const Profile = () => {
 
     }
     const initialValues = {
-
         firstName: '',
         lastName: '',
         numberStreet: '',
