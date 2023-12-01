@@ -20,7 +20,7 @@ const App = () => {
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/show/:id" element={<ShowProduct/>}/>
-                <Route path="/opinion" element={<Opinion/>}/>
+                <Route path="/opinion/:id" element={<Opinion/>}/>
             </Routes>
             <ToastContainer
                 position="bottom-right"

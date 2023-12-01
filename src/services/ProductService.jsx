@@ -15,7 +15,7 @@ export async function getDetailsProduct(id)
     return await Axios.get(`/product/show/${id}`)
 }
 
-export async function addOpinionProduct(data)
+export async function addOpinionProduct(data, id)
 {
-    return await Axios.post(`/opinion/new`, data)
+    return await Axios.post(`/opinion/new/${id}`, data)
 }

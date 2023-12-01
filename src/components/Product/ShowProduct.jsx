@@ -53,7 +53,7 @@ const ShowProduct = () => {
                             <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
                         </div>
                         {isConnected && <button className='buttonProduct w-1/2 mx-auto lg:w-1/3' onClick={() => {
-                            navigate('/opinion')
+                            navigate(`/opinion/${detailsProducts.id}`)
                         }}>
                             Ajouter un avis
                         </button>}
