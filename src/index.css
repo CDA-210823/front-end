@@ -11,6 +11,9 @@
     html,body {
         min-height: 100vh;
     }
+    body {
+        background: #F6F6F6;
+    }
     header {
         @apply bg-indigo-800
     }
