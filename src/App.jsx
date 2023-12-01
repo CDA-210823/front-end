@@ -9,6 +9,7 @@ import {ToastContainer} from 'react-toastify';
 import Footer from './components/Footer/Footer.jsx';
 import ShowProduct from "./components/Product/ShowProduct.jsx";
 import Opinion from "./components/Opinion/Opinion.jsx";
+import AddProduct from "./views/Admin/Product/AddProduct.jsx";
 const App = () => {
     return (
         <Router>
@@ -21,6 +22,7 @@ const App = () => {
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/show/:id" element={<ShowProduct/>}/>
                 <Route path="/opinion" element={<Opinion/>}/>
+                <Route path="/addProduct" element={<AddProduct/>}/>
             </Routes>
             <ToastContainer
                 position="bottom-right"
