@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom";
 import {useSelector} from 'react-redux';
-import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
 
 const ShowProduct = () => {
+    const navigate = useNavigate();
     const isConnected = useSelector((state) => state.auth.isLogged);
     const params = useParams();
     const [detailsProducts, setDetailsProducts] = useState([]);
@@ -51,9 +52,11 @@ const ShowProduct = () => {
                             <ProductImage product={detailsProducts}/>
                             <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
                         </div>
-                        <button className='buttonProduct w-1/2 mx-auto'>
+                        {isConnected && <button className='buttonProduct w-1/2 mx-auto lg:w-1/3' onClick={() => {
+                            navigate('/opinion')
+                        }}>
                             Ajouter un avis
-                        </button>
+                        </button>}
                     </div>
                 </div>
             }

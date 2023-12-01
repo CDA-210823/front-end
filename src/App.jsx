@@ -9,6 +9,7 @@ import {ToastContainer} from 'react-toastify';
 import Footer from './components/Footer/Footer.jsx';
 import ShowProduct from './components/Product/ShowProduct.jsx';
 import Profile from './views/Profile/Profile.jsx';
+import Opinion from "./components/Opinion/Opinion.jsx";
 const App = () => {
     return (
         <Router>
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/show/:id" element={<ShowProduct/>}/>
+                <Route path="/opinion" element={<Opinion/>}/>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<Home/>} />
             </Routes>
