@@ -2,11 +2,15 @@ import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as yup from 'yup';
 import {addOpinionProduct} from "../../services/ProductService.jsx";
 import {toast} from "react-toastify";
+// import {useSelector} from "react-redux";
 
 const Opinion = () => {
+    // const userId = useSelector(state => state.user.value);
+    // console.log(userId);
+
     const initialValues = {
         opinion: '',
-        note: 1,
+        note: 3,
     }
     const onSubmit = (values) => {
         addOpinionProduct(values)
@@ -15,7 +19,7 @@ const Opinion = () => {
 
     const validationsSchema = yup.object().shape({
         opinion: yup.string().required("Champs requis"),
-        // note: yup.number().required("La note ne peut pas être null")
+        note: yup.number().required("La note ne peut pas être null")
     })
 
     return (
@@ -36,7 +40,7 @@ const Opinion = () => {
                                 </div>
                                 <div>
                                     <label className='block text-xl font-bold family' htmlFor="note">Note</label>
-                                    <Field name='note' />
+                                    <Field name='note' type='number' />
                                     <ErrorMessage name="note"/>
                                 </div>
                                 <div className="row-form flex justify-end">
