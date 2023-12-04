@@ -17,7 +17,7 @@ const CardProduct = ({ product }) => {
         }
     }
     return (
-        <div className="md:w-1/4  lg:w-23/100 lg:w-[22%] p-4 bg-card mb-10 rounded-lg shadow-boxShadow ">
+        <div className="md:w-1/4  lg:w-23/100 lg:w-[22%] p-4 bg-card mb-10 ml-10 rounded-lg shadow-boxShadow ">
             <div className="w-full p-4 bg-card ">
                 <div className="w-full" >
                     <h3 className="text-3xl sm:text-lg lg:text-xl xl:text-2xl text-center mb-2">

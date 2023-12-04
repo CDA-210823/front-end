@@ -25,7 +25,7 @@ const Product = () => {
 
     return (
         <div className="w-full p-10">
-            <div className="flex flex-wrap justify-center space-x-1 sm:justify-between">
+            <div className="flex flex-wrap justify-start sm:justify-items-start">
                 {products.map((product) => (
                     <CardProduct key={product.id} product={product} />
                 ))}
