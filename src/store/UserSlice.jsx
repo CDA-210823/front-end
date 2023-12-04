@@ -1,24 +1,44 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit';
 
 export const UserSlice = createSlice({
     name : 'user',
     initialState: {
-        email: null,
+        email: '',
         id: 0,
         firstName: '',
         lastName: '',
-        isAuth: false
+        address: {
+            0: {
+            numberStreet: '',
+            nameStreet: '',
+            postalCode: '',
+            city: '',
+            }
+        }
     },
     reducers: {
-        setUser: (state , {payload}) => {
+        regUser: (state , {payload}) => {
             state.email = payload.email;
             state.id = payload.id;
             state.firstName = payload.firstName;
             state.lastName = payload.lastName;
-            state.isAuth = payload.isAuth;
+            state.address.numberStreet = payload.address.numberStreet;
+            state.address.nameStreet = payload.address.nameStreet;
+            state.address.postalCode = payload.address.postalCode;
+            state.address.city = payload.address.city;
         },
+        destroyUser: (state) => {
+            state.email = '';
+            state.id = 0;
+            state.firstName = '';
+            state.lastName = '';
+            state.address.numberStreet = '';
+            state.address.nameStreet = '';
+            state.address.postalCode = '';
+            state.address.city = '';
+        }
     }
 });
 
-export const { setUser } = UserSlice.actions;
+export const {  regUser, destroyUser } = UserSlice.actions;
 export default UserSlice.reducer;

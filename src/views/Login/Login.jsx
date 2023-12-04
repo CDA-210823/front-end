@@ -4,19 +4,24 @@ import {Link, useNavigate} from 'react-router-dom';
 import * as yup from 'yup';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {isLoggedIn} from '../../store/LoggedSlice.jsx';
-
+import { regUser } from '../../store/UserSlice.jsx';
+import {UserService} from '../../services/UserService.jsx';
 const Login = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
+    const storeUser = useSelector(state => state.user);
     const login = (values) => {
         TokenService.login(values)
             .then(response => {
                 localStorage.setItem('email', values.email);
                 TokenService.setToken(response.data.token);
                 const connected = TokenService.isLogged();
-                console.log(connected);
+                UserService.getUser().then(ret => {
+                    console.log(ret.data);
+                    dispatch(regUser(ret.data));
+                });
                 dispatch(isLoggedIn(connected));
                 navigate('/');
                 toast('Vous êtes maintenant connecté !');
@@ -64,7 +69,6 @@ const Login = () => {
                         </div>
                     </Form>
                 </main>
-
             </Formik>
         </>
     );

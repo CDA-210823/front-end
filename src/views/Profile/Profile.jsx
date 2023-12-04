@@ -1,56 +1,86 @@
 import React, {useEffect, useState} from 'react'
-import AxiosService from '../../services/AxiosService.jsx';
-import {Form, Formik} from 'formik';
-import {useDispatch} from 'react-redux';
+import {Field, Form, Formik} from 'formik';
+import {useDispatch, useSelector} from 'react-redux';
 import {UserService} from '../../services/UserService.jsx';
-
+import * as yup from 'yup';
+import { regUser } from '../../store/UserSlice.jsx';
 const Profile = () => {
     const [loading, setLoading] = useState(true);
-    const [user , setUser] = useState({});
+    const [userId, setUserId] = useState(0);
+    const [user, setUser] = useState('');
     const dispatch = useDispatch();
-    useEffect(() => {
-        console.log(UserService.getMail());
-        UserService.getId().then(response => {
-            console.log(response);
-        });
-        setLoading(false)
-    }, [])
-    // const validationSchema = yup.object().shape({
-    //
-    // })
-    const validationSchema = () => {
-
+    const storeUser = useSelector(state => state.user);
+    console.log(storeUser)
+    let initialValues = {
+        firstName: (storeUser.firstName) ?? '',
+        lastName: (storeUser.lastName) ?? '',
+        address: {
+            numberStreet: (storeUser.address[0].numberStreet) ?? '',
+            nameStreet: (storeUser.address[0].nameStreet) ?? '',
+            postalCode: (storeUser.address[0].postalCode) ?? '',
+            city: (storeUser.address[0].city) ?? '',
+        },
+        email: (storeUser.email) ?? '',
     }
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const currentUser = await UserService.getUser()
+                    .then(
+                        (response) => {
+                            dispatch(regUser(response.data));
+                            setUser(response.data);
+                        }
+                    )
+                setLoading(false)
+            } catch (error) {
+                console.warn(error);
+            }
+        }
+        fetchData();
+    }, []);
+    const validationSchema = yup.object().shape({
+            firstName: yup.string()
+                .min(2, 'Le prénom est trop court')
+                .max(50, 'Le prénom est trop long')
+                .required('Required'),
+            lastName: yup.string()
+                .min(2, 'Le nom est trop court!')
+                .max(50, 'Too Long!')
+                .required('Required'),
+            email: yup.string().email('Invalid email').required('Required'),
+        address: yup.object().shape({
+            numberStreet: yup.string().required('Required'),
+            nameStreet: yup.string().required('Required'),
+            postalCode: yup.string().required('Required'),
+            city: yup.string().required('Required'),
+        })
+        });
+
     const handleSubmit = (values) => {
 
     }
-    const initialValues = {
-        firstName: '',
-        lastName: '',
-        numberStreet: '',
-        nameStreet: '',
-        postalCode: '',
-        city: '',
-        email: ''
+    if (loading) {
+        return <h1>Loading...</h1>
     }
     return (
-        <div>
+        <>
             <div className="containerDetailsProduct">
                 <h1>Profil</h1>
-                <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+                <Formik initialValues={user} onSubmit={handleSubmit} validationSchema={validationSchema}>
                     <Form>
-                    <input type="text" id="firstName" name="firstName" placeholder="firstName"/>
-                    <input type="text" id="lastName" name="lastName" placeholder="lastName"/>
-                    <input type="text" id="numberStreet" name="numberStreet" placeholder="N° de rue"/>
-                    <input type="text" id="nameStreet" name="nameStreet" placeholder="Nom de rue"/>
-                    <input type="text" id="postalCode" name="postalCode" placeholder="code postal"/>
-                    <input type="text" id="city" name="city" placeholder="ville"/>
-                    <input type="email" id="email" name="email" placeholder="email"/>
-                    <input type="button" value="Mettre à jour"/>
+                        <Field type="text" id="firstName" name="firstName" placeholder="firstName"/>
+                        <Field type="text" id="lastName" name="lastName" placeholder="lastName"/>
+                        <Field type="text" id="address.numberStreet" name="address.numberStreet" placeholder="N° de rue"/>
+                        <Field type="text" id="address.nameStreet" name="address.nameStreet" placeholder="Nom de rue"/>
+                        <Field type="text" id="address.postalCode" name="address.postalCode" placeholder="code postal"/>
+                        <Field type="text" id="address.city" name="address.city" placeholder="ville"/>
+                        <Field type="email" id="email" name="email" placeholder="email"/>
+                        <Field type="button" value="Mettre à jour"/>
                     </Form>
                 </Formik>
             </div>
-        </div>
+        </>
     )
 }
-export default Profile
+export default Profile;

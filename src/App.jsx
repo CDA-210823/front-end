@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer.jsx';
 import ShowProduct from './components/Product/ShowProduct.jsx';
 import Profile from './views/Profile/Profile.jsx';
 import Opinion from "./components/Opinion/Opinion.jsx";
+import Search from "./views/Search/Search.jsx";
 const App = () => {
     return (
         <Router>
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="/show/:id" element={<ShowProduct/>}/>
                 <Route path="/opinion" element={<Opinion/>}/>
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="*" element={<Home/>} />
             </Routes>
             <ToastContainer

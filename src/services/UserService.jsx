@@ -1,5 +1,5 @@
 import {jwtDecode} from "jwt-decode";
-import Axios from "./AxiosService.jsx";
+import Axios from './AxiosService.jsx';
 
 const getMail = () => {
     const token = localStorage.getItem('token');
@@ -9,13 +9,10 @@ const getMail = () => {
     }
     return '';
 }
-const getId = () => {
+const getUser = () => {
     const data = {
             email: getMail(),
         };
     return Axios.post('/user/searchbyemail', data);
 }
-const getUsername = (id) => {
-
-}
-export const UserService = {getMail, getId};
+export const UserService = {getMail, getUser};
