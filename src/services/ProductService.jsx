@@ -2,10 +2,10 @@ import Axios from '/src/services/AxiosService.jsx';
 
 export async function addProduct(data)
 {
-    for (const value of data.values()) {
-        console.log(value);
-    }
-    return await Axios.post('/product/new', {data})
+    return await Axios.post('/product/new', data, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }})
 }
 
 export async function getLastProducts()

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardProduct from '../../components/Product/CardProduct.jsx';
+import {toast} from "react-toastify";
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ const Product = () => {
     }, []);
 
     const addToCart = (productId) => {
-        console.log(`Produit ajouté au panier avec l'ID ${productId}`);
+        toast('Le produit à été ajouter au panier');
     };
 
     return (

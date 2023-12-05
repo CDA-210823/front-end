@@ -1,6 +1,5 @@
 
 const ProductImage = ({product, onClickEvent, imageWidth}) => {
-    console.log(product)
 
     const imageLink = 'http://localhost:8000' + product.imageProduct[0].path + '.' + product.imageProduct[0].ext
     return (

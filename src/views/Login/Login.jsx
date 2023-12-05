@@ -15,7 +15,6 @@ const Login = () => {
             .then(response => {
                 TokenService.setToken(response.data.token);
                 const connected = TokenService.isLogged();
-                console.log(connected);
                 dispatch(isLoggedIn(connected));
                 navigate('/');
                 toast('Vous êtes maintenant connecté !');
