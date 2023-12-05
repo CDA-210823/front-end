@@ -10,7 +10,11 @@ import Footer from './components/Footer/Footer.jsx';
 import ShowProduct from './components/Product/ShowProduct.jsx';
 import Profile from './views/Profile/Profile.jsx';
 import Opinion from "./components/Opinion/Opinion.jsx";
+<<<<<<< HEAD
 import Search from "./views/Search/Search.jsx";
+=======
+import AddProduct from "./views/Admin/Product/AddProduct.jsx";
+>>>>>>> dev
 const App = () => {
     return (
         <Router>
@@ -22,10 +26,15 @@ const App = () => {
                 <Route path="/registration" element={<Registration/>}/>
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/show/:id" element={<ShowProduct/>}/>
+<<<<<<< HEAD
                 <Route path="/opinion" element={<Opinion/>}/>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="*" element={<Home/>} />
+=======
+                <Route path="/addProduct" element={<AddProduct/>}/>
+                <Route path="/opinion/:id" element={<Opinion/>}/>
+>>>>>>> dev
             </Routes>
             <ToastContainer
                 position="bottom-right"

@@ -4,6 +4,9 @@ import {useSelector} from 'react-redux';
 import {useNavigate} from "react-router-dom";
 import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
+import {addToCart} from "../../services/cartService.jsx";
+import {toast} from "react-toastify";
+import product from "../../views/Product/Product.jsx";
 
 const ShowProduct = () => {
     const navigate = useNavigate();
@@ -12,14 +15,18 @@ const ShowProduct = () => {
     const [detailsProducts, setDetailsProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // const verifyForCart = (product) => {
-    //     if (isConnected) {
-    //         /*TODO change edit addToCart @Noah*/
-    //         addToCart(product.id)
-    //     } else {
-    //         toast('Vous devez être connecté pour pouvoir ajouter au panier')
-    //     }
-    // }
+    const [quantity, setQuantity] = useState(1);
+    function HandleClick (product, quantity) {
+        if (isConnected) {
+            addToCart({
+                idProduct: product.id,
+                idCart: 1,
+                quantity: quantity
+            }).then(() => toast('Produit ajouter au panier avec succès'))
+        } else {
+            toast('Vous devez être connecté pour pouvoir ajouter au panier');
+        }
+    }
 
     useEffect(() => {
         getDetailsProduct(params.id)
@@ -40,7 +47,7 @@ const ShowProduct = () => {
                         <p className='stockProduct'>{detailsProducts.stock > 0 ? 'En stock' : 'En rupture'}</p>
                         <button className='buttonProduct'
                                 onClick={() => {
-                                    // verifyForCart()
+                                    HandleClick(detailsProducts, quantity)
                                 }}>
                             Ajouter au panier
                         </button>
@@ -53,7 +60,7 @@ const ShowProduct = () => {
                             <div className='ml-4 mt-4 family w-2/3'>{detailsProducts.description}</div>
                         </div>
                         {isConnected && <button className='buttonProduct w-1/2 mx-auto lg:w-1/3' onClick={() => {
-                            navigate('/opinion')
+                            navigate(`/opinion/${detailsProducts.id}`)
                         }}>
                             Ajouter un avis
                         </button>}
