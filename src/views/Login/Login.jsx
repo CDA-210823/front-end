@@ -9,12 +9,13 @@ import {isLoggedIn} from '../../store/LoggedSlice.jsx';
 import {regUser} from '../../store/UserSlice.jsx';
 import {UserService} from '../../services/UserService.jsx';
 async function storeUser() {
+    const dispatch = useDispatch();
     try {
         const currentUser = await UserService.getUser()
             .then(
                 (response) => {
                     dispatch(regUser(response.data));
-                    setUser(response.data);
+                    // setUser(response.data);
                 }
             );
         console.log(storeUser)
