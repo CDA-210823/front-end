@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer.jsx';
 import ShowProduct from "./components/Product/ShowProduct.jsx";
 import Opinion from "./components/Opinion/Opinion.jsx";
 import AddProduct from "./views/Admin/Product/AddProduct.jsx";
+
 const App = () => {
     return (
         <Router>

@@ -61,7 +61,7 @@
     /*ShowProduct*/
 
     .containerShowProduct {
-        @apply flex  justify-around my-24 items-center max-[769px]:flex-col-reverse max-[769px]:mt-2
+        @apply flex justify-around my-24 items-center max-[769px]:flex-col-reverse max-[769px]:mt-2
     }
 
     .containerDetailsProduct {
@@ -72,7 +72,26 @@
     .containerDescriptionProduct {
         @apply bg-detailsProduct rounded shadow-boxShadow lg:mt-5 md:w-full lg:w-2/4 lg:mr-5 p-10 sm:mr-0
         max-[769px]:my-6 flex flex-col
+    }
 
+    .opinion {
+        @apply bg-detailsProduct w-1/2 mx-auto rounded shadow-boxShadow
+    }
+
+    .opinion h2 {
+        @apply text-center p-2 titleDescriptionProduct
+    }
+
+    .opinion-content {
+        @apply border border-gray-400 border-dashed w-1/2 mx-auto my-2
+    }
+
+    .notice {
+        @apply text-center p-2
+    }
+
+    .note {
+        @apply font-semibold
     }
 
     .detailsProduct {
