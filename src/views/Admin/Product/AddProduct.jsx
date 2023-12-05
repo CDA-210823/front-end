@@ -3,6 +3,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {addProduct} from "../../../services/ProductService.jsx";
 import {getAllCategories} from "../../../services/CategoryService.jsx";
 import {toast} from "react-toastify";
+import * as yup from "yup";
 
 const AddProduct = () => {
     const [categories, setCategories] = useState([])
@@ -11,10 +12,18 @@ const AddProduct = () => {
         name: '',
         image: '',
         description: '',
-        price: 0,
+        price: 1,
         category: 1,
         stock: 100,
     };
+
+    const validationSchema = yup.object().shape({
+        name: yup.string().min(4).max(50).required('Le champ nom est obligatoire'),
+        image: yup.object().required('Le champ image est obligatoire'),
+        description: yup.string().min(10).max(5000).required('La description est obligatoire'),
+        price: yup.number().positive('Le prix doit être positif').required('Le prix est obligatoire'),
+        stock: yup.number().positive('Le stock doit être positif')
+    });
 
     useEffect(() => {
         getAllCategories()
