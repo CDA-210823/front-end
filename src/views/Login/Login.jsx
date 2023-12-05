@@ -19,8 +19,10 @@ const Login = () => {
                 TokenService.setToken(response.data.token);
                 const connected = TokenService.isLogged();
                 UserService.getUser().then(ret => {
-                    console.log(ret.data);
                     dispatch(regUser(ret.data));
+                    if (ret.data.address[0]) {
+                        dispatch(regUser(ret.data));
+                    }
                 });
                 dispatch(isLoggedIn(connected));
                 navigate('/');

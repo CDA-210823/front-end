@@ -11,7 +11,7 @@ const Logout = () => {
     useEffect(() => {
         TokenService.logout();
         dispatch(isLoggedIn());
-        // dispatch(destroyUser());
+        dispatch(destroyUser());
         navigate('/login');
         toast('Vous avez bien été déconnecté');
     }, []);

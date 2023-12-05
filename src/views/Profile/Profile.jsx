@@ -10,15 +10,14 @@ const Profile = () => {
     const [user, setUser] = useState('');
     const dispatch = useDispatch();
     const storeUser = useSelector(state => state.user);
-    console.log(storeUser)
     let initialValues = {
         firstName: (storeUser.firstName) ?? '',
         lastName: (storeUser.lastName) ?? '',
         address: {
-            numberStreet: (storeUser.address[0].numberStreet) ?? '',
-            nameStreet: (storeUser.address[0].nameStreet) ?? '',
-            postalCode: (storeUser.address[0].postalCode) ?? '',
-            city: (storeUser.address[0].city) ?? '',
+            numberStreet: (storeUser.address.numberStreet) ?? '',
+            nameStreet: (storeUser.address.nameStreet) ?? '',
+            postalCode: (storeUser.address.postalCode) ?? '',
+            city: (storeUser.address.city) ?? '',
         },
         email: (storeUser.email) ?? '',
     }
@@ -33,6 +32,7 @@ const Profile = () => {
                         }
                     )
                 setLoading(false)
+                console.log(storeUser)
             } catch (error) {
                 console.warn(error);
             }
@@ -67,7 +67,7 @@ const Profile = () => {
         <>
             <div className="containerDetailsProduct">
                 <h1>Profil</h1>
-                <Formik initialValues={user} onSubmit={handleSubmit} validationSchema={validationSchema}>
+                <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
                     <Form>
                         <Field type="text" id="firstName" name="firstName" placeholder="firstName"/>
                         <Field type="text" id="lastName" name="lastName" placeholder="lastName"/>
