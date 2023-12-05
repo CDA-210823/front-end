@@ -33,11 +33,11 @@ const Registration = () => {
     return (
         <>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-               <main className='w-full h-[90vh] flex items-center' >
+               <div className='w-full h-[90vh] flex items-center' >
                    <Form className='w-full'>
-                       <div className="flex lg:flex-row ml-10 lg:items-center">
+                       <div className="flex lg:flex-row ml-10 justify-around lg:items-center">
                            <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-1/3 lg:mr-5
-                           p-10 sm:w-2/3 sm:mr-0 max-[769px]:mx-auto" >
+                           p-10 sm:w-2/3 sm:mr-0 max-[769px]:mx-auto"  >
                                <h1 className="text-2xl font-bold text-center">Inscription</h1>
                                <div className="row-form">
                                    <label htmlFor="email">Email</label>
@@ -53,9 +53,12 @@ const Registration = () => {
                                    <input className="buttonProduct" type="submit" value="Registration"/>
                                </div>
                            </div>
+                           <div className='max-[769px]:hidden'>
+                               <img src="/src/assets/images/Authentification/register.svg" alt=""/>
+                           </div>
                        </div>
                    </Form>
-               </main>
+               </div>
 
             </Formik>
         </>

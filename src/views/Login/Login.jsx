@@ -37,10 +37,13 @@ const Login = () => {
     return (
         <>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-                <main className='w-full h-[90vh] flex items-center'>
+                <div className='w-full h-[90vh] flex items-center'>
                     <Form className='w-full'>
-                        <div className="flex  justify-end w-full">
-                            <div className="bg-detailsProduct rounded shadow-boxShadow max-[769px]:w-2/3 max-[769px]:mx-auto w-1/3 mr-10 p-10">
+                        <div className="flex justify-around w-full">
+                            <div  className='max-[769px]:hidden'>
+                                <img src="/src/assets/images/Authentification/login.svg" alt=""/>
+                            </div>
+                            <div className="bg-detailsProduct max-h-96 rounded shadow-boxShadow max-[769px]:w-2/3 max-[769px]:mx-auto w-1/3 mr-10 p-10">
                                 <h1 className="text-2xl font-bold text-center">Connexion</h1>
                                 <div className="row-form">
                                     <label htmlFor="email">Email</label>
@@ -61,7 +64,7 @@ const Login = () => {
                             </div>
                         </div>
                     </Form>
-                </main>
+                </div>
 
             </Formik>
         </>
