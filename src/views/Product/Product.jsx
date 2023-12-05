@@ -20,9 +20,6 @@ const Product = () => {
         fetchProducts();
     }, []);
 
-    const addToCart = (productId) => {
-        toast('Le produit à été ajouter au panier');
-    };
 
     return (
         <div className="w-full p-10">
