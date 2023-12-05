@@ -1,6 +1,7 @@
-import {jwtDecode} from "jwt-decode";
+import {jwtDecode} from 'jwt-decode';
 import Axios from './AxiosService.jsx';
-
+import { regUser } from '../store/UserSlice.jsx';
+import { useDispatch } from 'react-redux';
 const getMail = () => {
     const token = localStorage.getItem('token');
     if (token) {

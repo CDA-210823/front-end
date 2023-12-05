@@ -22,22 +22,7 @@ const Profile = () => {
         email: (storeUser.email) ?? '',
     }
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const currentUser = await UserService.getUser()
-                    .then(
-                        (response) => {
-                            dispatch(regUser(response.data));
-                            setUser(response.data);
-                        }
-                    )
-                setLoading(false)
-                console.log(storeUser)
-            } catch (error) {
-                console.warn(error);
-            }
-        }
-        fetchData();
+        setLoading(false)
     }, []);
     const validationSchema = yup.object().shape({
             firstName: yup.string()
