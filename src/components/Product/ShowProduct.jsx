@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import {useNavigate} from "react-router-dom";
 import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
-import Stars from "../Opinion/Stars.jsx";
+// import Stars from "../Opinion/Stars.jsx";
 
 const ShowProduct = () => {
     const navigate = useNavigate();
@@ -70,7 +70,9 @@ const ShowProduct = () => {
                                 {detailsProducts.opinions.map((opinion) => (
                                     <div key={opinion.id} className='opinion-content'>
                                         <p className='notice'>{opinion.opinion}</p>
-                                        <p><Stars/><span className='note'>Note</span> : {opinion.note}</p>
+                                        {/*<Stars rating={opinion.note}/>*/}
+                                        {/*<Stars/>*/}
+                                        <p><span className='note'>Note</span> : {opinion.note}</p>
                                     </div>
                                 ))}
                             </div>
