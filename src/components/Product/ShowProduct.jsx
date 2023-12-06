@@ -6,7 +6,6 @@ import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
 import {addToCart} from "../../services/cartService.jsx";
 import {toast} from "react-toastify";
-import product from "../../views/Product/Product.jsx";
 
 const ShowProduct = () => {
     const navigate = useNavigate();
@@ -22,7 +21,14 @@ const ShowProduct = () => {
                 idProduct: product.id,
                 idCart: 1,
                 quantity: quantity
-            }).then(() => toast('Produit ajouter au panier avec succès'))
+            }).then((r) => {
+                if (r.status === 200) {
+                    toast('Produit ajouter au panier avec succès')
+                } else {
+                    toast('Une erreur est survenue');
+                }
+            })
+                .catch(() => toast('Une erreur est survenue'));
         } else {
             toast('Vous devez être connecté pour pouvoir ajouter au panier');
         }
