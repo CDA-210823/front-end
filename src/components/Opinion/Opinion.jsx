@@ -1,12 +1,17 @@
 import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as yup from 'yup';
-import {addOpinionProduct} from "../../services/ProductService.jsx";
+import {addOpinionProduct, getDetailsProduct} from "../../services/ProductService.jsx";
 import {toast} from "react-toastify";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+
 // import {useSelector} from "react-redux";
 
 const Opinion = () => {
+    const navigate = useNavigate();
     const params = useParams();
+    const [loading, setLoading] = useState(true);
+
     // const userId = useSelector(state => state.user.value);
     // console.log(userId);
 
@@ -14,9 +19,19 @@ const Opinion = () => {
         opinion: '',
         note: 3,
     }
+
+    useEffect(() => {
+        if (loading) {
+            getDetailsProduct(params.id) // récupérer les détails du produit après l'ajout de l'avis
+                .then(() => setLoading(false))
+        }
+    }, [loading, params.id]);
+
     const onSubmit = (values) => {
         addOpinionProduct(values, params.id)
             .then(() => toast("Votre avis a été ajouté avec succès"))
+        setLoading(true);
+            navigate(`/show/${params.id}`)
     };
 
     const validationsSchema = yup.object().shape({

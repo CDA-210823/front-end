@@ -11,6 +11,7 @@ const Stars = () => {
     return (
         <Rating
                 // fillColor='#BADA55'
+                className="stars"
                 tooltipArray={['pas convaincu', 'bof', 'moyen', 'top', 'genial']}
                 showTooltip
                 ratingValue={rating}

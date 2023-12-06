@@ -90,6 +90,10 @@
         @apply text-center p-2
     }
 
+    .stars {
+        display: inline-block;
+    }
+
     .note {
         @apply font-semibold
     }
