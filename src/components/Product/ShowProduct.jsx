@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import {useNavigate} from "react-router-dom";
 import ProductImage from "./ProductImage.jsx";
 import {getDetailsProduct} from "../../services/ProductService.jsx";
-// import Stars from "../Opinion/Stars.jsx";
+import {Rating} from "react-simple-star-rating";
 
 const ShowProduct = () => {
     const navigate = useNavigate();
@@ -12,6 +12,7 @@ const ShowProduct = () => {
     const params = useParams();
     const [detailsProducts, setDetailsProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+
 
     // const verifyForCart = (product) => {
     //     if (isConnected) {
@@ -70,9 +71,8 @@ const ShowProduct = () => {
                                 {detailsProducts.opinions.map((opinion) => (
                                     <div key={opinion.id} className='opinion-content'>
                                         <p className='notice'>{opinion.opinion}</p>
-                                        {/*<Stars rating={opinion.note}/>*/}
-                                        {/*<Stars/>*/}
-                                        <p><span className='note'>Note</span> : {opinion.note}</p>
+                                        <Rating  className='style-module_emptyIcons__Bg-FZ .empty-icons'  ratingValue={opinion.note} readonly={true}/>
+                                        {/*<p><span className='note'>Note</span> : {opinion.note}</p>*/}
                                     </div>
                                 ))}
                             </div>

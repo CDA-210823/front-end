@@ -1,8 +1,6 @@
-import {useState} from "react";
 import {Rating} from "react-simple-star-rating";
 
-const Stars = () => {
-    const [rating, setRating] = useState(0)
+const Stars = ({setRating, rating}) => {
     const handleRating = (rate) => {
         console.log(rate)
 

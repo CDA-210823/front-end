@@ -4,7 +4,7 @@ import {addOpinionProduct, getDetailsProduct} from "../../services/ProductServic
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-// import Stars from "./Stars.jsx";
+import Stars from "./Stars.jsx";
 
 // import {useSelector} from "react-redux";
 
@@ -12,6 +12,8 @@ const Opinion = () => {
     const navigate = useNavigate();
     const params = useParams();
     const [loading, setLoading] = useState(true);
+    const [rating, setRating] = useState(0)
+
 
     // const userId = useSelector(state => state.user.value);
     // console.log(userId);
@@ -58,7 +60,7 @@ const Opinion = () => {
                                 </div>
                                 <div>
                                     <label className='block text-xl font-bold family' htmlFor="note">Note</label>
-                                    <Field name='note' type='number' />
+                                    <Stars rating={rating} setRating={setRating}/>
                                     <ErrorMessage name="note"/>
                                 </div>
                                 <div className="row-form flex justify-end">
