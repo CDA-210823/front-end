@@ -2,6 +2,8 @@ import Truncate from "../Utils/Truncate.jsx";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {useSelector} from "react-redux";
+import {addToCart} from "../../services/cartService.jsx";
+import {useState} from "react";
 
 
 const CardProduct = ({ product }) => {
@@ -9,11 +11,16 @@ const CardProduct = ({ product }) => {
     const imageLink = 'http://localhost:8000' + product.imageProduct[0].path + '.' + product.imageProduct[0].ext
     const isConnected = useSelector((state) => state.auth.isLogged);
     const navigate = useNavigate();
-    const verifyForCart = (product)=> {
+    const [quantity, setQuantity] = useState(1);
+    function HandleClick (product, quantity) {
         if (isConnected) {
-            addToCart(product.id)
+            addToCart({
+                idProduct: product.id,
+                idCart: 1,
+                quantity: quantity
+            }).then(() => toast('Produit ajouter au panier avec succès'))
         } else {
-            toast('Vous devez être connecté pour pouvoir ajouter au panier')
+            toast('Vous devez être connecté pour pouvoir ajouter au panier');
         }
     }
     return (
@@ -25,16 +32,14 @@ const CardProduct = ({ product }) => {
                     </h3>
                 </div>
 
-                <img onClick={()=> {
-                    navigate(`/show/${product.id}`);
-                }}  src={imageLink} alt="" className="w-full" />
+                <img onClick={()=> {navigate(`/show/${product.id}`)}}  src={imageLink} alt="" className="w-full" />
                 <div className="flex flex-col flex-wrap justify-between items-center align-middle mt-4">
                     <div className="md:w-full text-center">
                         <p className="md:text-xl md:text-center">{product.price}€</p>
                     </div>
                     <button
                         onClick={()=> {
-                            verifyForCart()
+                            HandleClick(product, quantity)
                         }}
                         className="buttonProduct">
                         Ajouter au panier

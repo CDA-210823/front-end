@@ -2,17 +2,28 @@ import React, {useEffect, useState} from 'react'
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {addProduct} from "../../../services/ProductService.jsx";
 import {getAllCategories} from "../../../services/CategoryService.jsx";
+import {toast} from "react-toastify";
+import * as yup from "yup";
 
 const AddProduct = () => {
     const [categories, setCategories] = useState([])
+    const [image, setImage] = useState('');
     const initialValues = {
         name: '',
         image: '',
         description: '',
-        price: 0,
+        price: 1,
         category: 1,
         stock: 100,
     };
+
+    const validationSchema = yup.object().shape({
+        name: yup.string().min(4).max(50).required('Le champ nom est obligatoire'),
+        image: yup.object().required('Le champ image est obligatoire'),
+        description: yup.string().min(10).max(5000).required('La description est obligatoire'),
+        price: yup.number().positive('Le prix doit être positif').required('Le prix est obligatoire'),
+        stock: yup.number().positive('Le stock doit être positif')
+    });
 
     useEffect(() => {
         getAllCategories()
@@ -23,14 +34,14 @@ const AddProduct = () => {
     function submit(values)
     {
         let formData = new FormData();
-        formData.append('category', values.category)
-        formData.append('name', values.name)
-        formData.append('description', values.description)
-        formData.append('stock', values.stock)
-        formData.append('price', values.price)
-        formData.append('image', values.image)
+        formData.append('category', values.category);
+        formData.append('name', values.name);
+        formData.append('description', values.description);
+        formData.append('stock', values.stock);
+        formData.append('price', values.price);
+        formData.append('image', image);
 
-        addProduct(formData).then(r => console.log(r))
+        addProduct(formData).then((() => toast('Le produit à bien été ajouter')));
     }
 
     return (
@@ -38,7 +49,7 @@ const AddProduct = () => {
             <h1 className="text-5xl  mt-20 font-bold text-center">Ajouter un produit</h1>
             <Formik initialValues={initialValues} onSubmit={submit}>
                 <div className='w-full h-[60vh] flex items-center mt-20'>
-                    <Form className='w-full'>
+                    <Form className='w-full' encType="multipart/form-data">
                         <div className='flex justify-center'>
                             <div className="bg-detailsProduct rounded-md shadow-boxShadow lg:mt-5 lg:w-2/10 lg:mr-5
                            p-10 sm:mr-0 max-[769px]:w-[90vw] w-1/2">
@@ -74,7 +85,7 @@ const AddProduct = () => {
 
                                 <div className={"my-4"}>
                                     <label className='block text-xl font-bold family' htmlFor="image">Stock</label>
-                                    <Field name='image' type={'file'}/>
+                                    <input type='file' onChange={(e) => setImage(e.target.files[0]) }/>
                                 </div>
 
                                 <div className="row-form flex justify-end">

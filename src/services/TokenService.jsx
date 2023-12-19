@@ -21,7 +21,6 @@ const isLogged = () => {
     if (token) {
         const { exp: expiration } = jwtDecode(token);
         if (expiration < Date.now() / 1000) {
-            console.log('connection expired');
             logout();
             return false;
         }
